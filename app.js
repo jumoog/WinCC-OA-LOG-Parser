@@ -4,10 +4,11 @@ const readline = require('readline')
 const stream = require('stream')
 const _ = require('underscore')
 const fileName = process.argv[2]
-// encode the iso88591 bullshit to utf8
+// encode always to UTF8
 const instream = fs.createReadStream(fileName).pipe(new AutoDetectDecoderStream())
 const outstream = new stream
 const rl = readline.createInterface(instream, outstream)
+// regex pattern to detect new manager entries
 const pattern = new RegExp("(PVSS|WCC).*((19[0-9]{2}|2[0-9]{3}).(0[1-9]|1[012]).([123]0|[012][1-9]|31)) (([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]).([0-9]{3})),.*(INFO|WARNING|SEVERE|FATAL).*,")
 const WARNING = "WARNING"
 const SEVERE = "SEVERE"
@@ -60,8 +61,8 @@ rl.on('line', line => {
 
 rl.on('close', () => {
   for (let i = 0; i < text.length; ++i) {
-    // is the current line number in the lines array
-    // with fast binary search
+    // checks if the current line number is in the lines array
+    // with fast binary search (67 times faster with 12 mb log)
     if (_.indexOf(lines, i, true) !== -1) {
       // if oldLine is not empty and line number was in the lines array a new message beginns
       // so push the message to the array
@@ -86,6 +87,7 @@ rl.on('close', () => {
 
 
 function createItemObjects(levels, dates, times, message) {
+  // empty result array
   let results = []
   // loop through message array
   for (let k = 0; k < message.length; ++k) {

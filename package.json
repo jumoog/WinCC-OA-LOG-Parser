@@ -1,0 +1,23 @@
+{
+  "name": "wincc-oa-log-parser",
+  "version": "1.0.0",
+  "description": "parse WinCC OA PVS_II Log",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jumoog/WinCC-OA-LOG-Parser.git"
+  },
+  "author": "Kilian von Pflugk",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jumoog/WinCC-OA-LOG-Parser/issues"
+  },
+  "homepage": "https://github.com/jumoog/WinCC-OA-LOG-Parser#readme",
+  "dependencies": {
+    "autodetect-decoder-stream": "^1.0.0",
+    "underscore": "^1.8.3"
+  }
+}

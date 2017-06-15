@@ -31,25 +31,25 @@ rl.on('line', line => {
   if (match !== null) {
     // if LEVEL equals "INFO"
     if (match[11] == INFO) {
-      times.push(moment(`${match[2]} ${match[6]}`).unix())
+      times.push(moment(`${match[2]} ${match[6]}`, 'YYYY.MM.DD h:mm:ss:SSS').valueOf())
       lines.push(lineCount)
       levels.push(INFO)
     }
     // if LEVEL equals "WARNING"
     if (match[11] == WARNING) {
-      times.push(moment(`${match[2]} ${match[6]}`).unix())
+      times.push(moment(`${match[2]} ${match[6]}`, 'YYYY.MM.DD h:mm:ss:SSS').valueOf())
       lines.push(lineCount)
       levels.push(WARNING)
     }
     // if LEVEL equals "SEVERE"
     if (match[11] == SEVERE) {
-      times.push(moment(`${match[2]} ${match[6]}`).unix())
+      times.push(moment(`${match[2]} ${match[6]}`, 'YYYY.MM.DD h:mm:ss:SSS').valueOf())
       lines.push(lineCount)
       levels.push(SEVERE)
     }
     // if LEVEL equals "FATAL"
     if (match[11] == FATAL) {
-      times.push(moment(`${match[2]} ${match[6]}`).unix())
+      times.push(moment(`${match[2]} ${match[6]}`, 'YYYY.MM.DD h:mm:ss:SSS').valueOf())
       lines.push(lineCount)
       levels.push(FATAL)
     }

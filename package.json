@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jumoog/WinCC-OA-LOG-Parser#readme",
   "dependencies": {
     "autodetect-decoder-stream": "^1.0.0",
+    "moment": "^2.18.1",
     "underscore": "^1.8.3",
     "xml-writer": "^1.7.0"
   }

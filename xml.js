@@ -27,7 +27,7 @@ XmlLayout.prototype.writePropertiesElement = function(xw, event)
 	xw.startElement('log4j:properties');
 
 	this.writeDataElement(xw, 'log4japp', event.app);
-
+	this.writeDataElement(xw, 'log4jnumber', event.number);
 	xw.endElement();
 };
 

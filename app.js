@@ -90,12 +90,14 @@ function createItemObjects(levels, times, message) {
     // extract manager name from message
     // its always the first word
     let manager = message[k].match(/^\w+/)
+    let number =  message[k].match(/\(([^)]+)\)/)
     // split with LEVEL
     let levelSplit = message[k].split((/INFO,|WARNING,|SEVERE,|FATAL,/))
     results.push(layout.format({
       level: levels[k],
       msg: message[k],
       app: manager[0],
+      number: number[1],
       timestamp: times[k],
     }))
   }
@@ -105,7 +107,7 @@ function createItemObjects(levels, times, message) {
 
 function createXML(data) {
   fs.writeFile(
-    `./${fileName}.xml`,
+    `${fileName}.xml`,
     // write array to json
     data,
     err => {

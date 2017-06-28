@@ -8,6 +8,7 @@ XmlLayout.prototype.format = function(event)
 	xw.startElement('log4j:event');
 	xw.writeAttribute('timestamp', event.timestamp.toString());
 	xw.writeAttribute('level', event.level.toUpperCase());
+	xw.writeAttribute('number', event.number);
 
 	this.writeMessageElement(xw, event.msg);
 	this.writePropertiesElement(xw, event);
@@ -27,7 +28,6 @@ XmlLayout.prototype.writePropertiesElement = function(xw, event)
 	xw.startElement('log4j:properties');
 
 	this.writeDataElement(xw, 'log4japp', event.app);
-	this.writeDataElement(xw, 'log4jnumber', event.number);
 	xw.endElement();
 };
 

@@ -89,7 +89,7 @@ function createItemObjects(levels, times, message) {
   for (let k = 0; k < message.length; ++k) {
     // extract manager name from message
     // its always the first word
-    let manager = message[k].match(/^\s*([a-zA-Z0-9]+)./);
+    let manager = message[k].match(/^\w+/);
     let number = message[k].match(/\(([^)]+)\)/);
     results.push(layout.format({
       level: levels[k],

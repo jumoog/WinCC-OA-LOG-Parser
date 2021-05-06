@@ -19,7 +19,7 @@
   "dependencies": {
     "autodetect-decoder-stream": "^1.0.3",
     "moment": "^2.24.0",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "xml-writer": "^1.7.0"
   }
 }

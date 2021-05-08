@@ -107,7 +107,7 @@ function createXML(data) {
   fs.writeFile(
     `${fileName}.xml`,
     // write array to json
-    data,
+    String(data),
     err => {
       if (err) {
         console.error("cant write the file");
